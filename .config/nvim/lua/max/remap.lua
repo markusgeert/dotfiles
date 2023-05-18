@@ -65,7 +65,7 @@ vim.keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 vim.keymap.set("n", "<F10>", "<cmd>TSHighlightCapturesUnderCursor<CR>")
 
-vim.keymap.set("n", "<leader><leader>", "<cmd>tab<CR><cmd>ter<CR>A")
+vim.keymap.set("n", "<leader><leader>", "<cmd>tabnew +term<CR>A")
 vim.keymap.set("", "<leader>t", "<cmd>tabnew<CR>")
 vim.keymap.set("", "<C-l>", "<cmd>tabnext<CR>")
 vim.keymap.set("", "<C-h>", "gT")
