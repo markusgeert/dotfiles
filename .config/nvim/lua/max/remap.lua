@@ -65,8 +65,15 @@ vim.keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 vim.keymap.set("n", "<F10>", "<cmd>TSHighlightCapturesUnderCursor<CR>")
 
+local netrw_mappings = vim.api.nvim_create_augroup('netrw_mappings', { clear = true })
+vim.api.nvim_create_autocmd({ 'filetype' }, {
+    pattern = "netrw",
+    group = netrw_mappings,
+    command = "silent! nunmap <buffer> <c-l>"
+})
+
 vim.keymap.set("n", "<leader><leader>", "<cmd>tabnew +term<CR>A")
 vim.keymap.set("", "<leader>t", "<cmd>tabnew<CR>")
-vim.keymap.set("", "<C-l>", "<cmd>tabnext<CR>")
-vim.keymap.set("", "<C-h>", "gT")
+vim.keymap.set("n", "<C-l>", "<cmd>tabnext<CR>")
+vim.keymap.set("n", "<C-h>", "gT")
 vim.keymap.set("", "<leader>w", "<cmd>tabclose<CR>")
