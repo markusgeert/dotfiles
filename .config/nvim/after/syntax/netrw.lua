@@ -10,7 +10,8 @@ if insideGitDir == 'true' then
         local ignoredFiles = {}
 
         for i in ignoredFilesIterator do
-            table.insert(ignoredFiles, i)
+            local escapedVal = i:gsub('"', '\'')
+            table.insert(ignoredFiles, escapedVal)
         end
 
         local ignoredPattern = '"^' .. table.concat(ignoredFiles, '\\|') .. '$"'

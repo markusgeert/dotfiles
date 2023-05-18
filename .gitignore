@@ -1,3 +1,4 @@
 *
+!.config/
+.config/**
 !.config/nvim/
-!.config/nvim/after/plugin/
