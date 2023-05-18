@@ -1,22 +1,74 @@
+local font = {
+    icon = "",
+    color = "#e15241",
+    name = "Font"
+}
+
+local ruby = {
+    icon = "󰴭",
+    color = "#e15241",
+    name = "Ruby"
+}
+
+local docker = {
+    icon = "󰡨",
+    color = "#458ee6",
+    cterm_color = "68",
+    name = "Docker",
+}
+
+local node = {
+    icon = "󰎙",
+    color = "#44883e",
+    name = "Node"
+}
+
+local image = {
+    icon = "󰈟",
+    color = "#52a49a",
+    name = "Image"
+}
+
 require("nvim-web-devicons").setup {
     strict = true,
 
     override_by_extension = {
-        ["code\\-workspace"] = {
+        ["bmp"] = image,
+        ["gif"] = image,
+        ["jpg"] = image,
+        ["jpeg"] = image,
+        ["png"] = image,
+        ["webp"] = image,
+        ["ttf"] = font,
+        ["otf"] = font,
+        ["woff"] = font,
+        ["woff2"] = font,
+        ["eot"] = font,
+        ["code-workspace"] = {
             icon = "󰨞",
             color = "#0098FF",
             name = "CodeWorkspace"
         },
         ["ts"] = {
+            icon = "󰛦",
             color = "#519aba",
             name = "Typescript",
-            icon = "󰛦"
         },
         ["d.ts"] = {
+            icon = "",
             color = "#519aba",
             name = "TypescriptTypes",
-            icon = ""
         },
+        ["xsd"] = {
+            icon = "󰗀",
+            color = "#e37933",
+            cterm_color = "166",
+            name = "Xsd",
+        },
+        ["Dockerfile"] = docker,
+        ["ru"] = ruby,
+        ["rb"] = ruby,
+        ["erb"] = ruby
     },
 
     override_by_filename = {
@@ -30,20 +82,16 @@ require("nvim-web-devicons").setup {
             color = "#f14e32",
             name = "Gitignore"
         },
-        [".nvmrc"] = {
-            icon = "󰎙",
-            color = "#44883e",
-            name = "Nvmrc"
-        },
-        ["package.json"] = {
-            icon = "󰎙",
-            color = "#44883e",
-            name = "Package"
-        },
-        ["package-lock.json"] = {
-            icon = "󰎙",
-            color = "#44883e",
-            name = "PackageLock"
+        [".nvmrc"] = node,
+        ["package.json"] = node,
+        ["package-lock.json"] = node,
+        ["Dockerfile"] = docker,
+        ["Gemfile"] = ruby,
+        ["Rakefile"] = ruby,
+        [".editorconfig"] = {
+            icon = "",
+            color = "#ffffff",
+            name = "Editorconfig"
         }
     }
 }
