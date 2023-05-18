@@ -4,6 +4,8 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("i", "kj", "<Esc>")
+vim.keymap.set("t", "kj", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- 'Drag' lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -59,8 +61,12 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-vim.keymap.set("t", "<leader><Esc>", ":bd!")
-
 vim.keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 vim.keymap.set("n", "<F10>", "<cmd>TSHighlightCapturesUnderCursor<CR>")
+
+vim.keymap.set("n", "<leader><leader>", "<cmd>tab<CR><cmd>ter<CR>A")
+vim.keymap.set("", "<leader>t", "<cmd>tabnew<CR>")
+vim.keymap.set("", "<C-l>", "<cmd>tabnext<CR>")
+vim.keymap.set("", "<C-h>", "gT")
+vim.keymap.set("", "<C-w>", "<cmd>tabclose<CR>")
