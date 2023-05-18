@@ -10,10 +10,10 @@ if insideGitDir == 'true' then
         local ignoredFiles = {}
 
         for i in ignoredFilesIterator do
-            table.insert(ignoredFiles, '\\(' .. i .. '\\)')
+            table.insert(ignoredFiles, i)
         end
 
-        local ignoredPattern = '"' .. table.concat(ignoredFiles, '\\|') .. '"'
+        local ignoredPattern = '"^' .. table.concat(ignoredFiles, '\\|') .. '$"'
 
         vim.cmd.syn({ args = { 'match', 'netrwGitignore', ignoredPattern } })
         vim.cmd.hi('default link netrwGitignore netrwComment')
