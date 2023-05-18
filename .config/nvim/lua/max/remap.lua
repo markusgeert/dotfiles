@@ -65,6 +65,7 @@ vim.keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
 vim.keymap.set("n", "<F10>", "<cmd>TSHighlightCapturesUnderCursor<CR>")
 
+-- Remove default mapping of <c-l> by Netrw
 local netrw_mappings = vim.api.nvim_create_augroup('netrw_mappings', { clear = true })
 vim.api.nvim_create_autocmd({ 'filetype' }, {
     pattern = "netrw",
@@ -72,8 +73,9 @@ vim.api.nvim_create_autocmd({ 'filetype' }, {
     command = "silent! nunmap <buffer> <c-l>"
 })
 
-vim.keymap.set("n", "<leader><leader>", "<cmd>tabnew +term<CR>A")
-vim.keymap.set("", "<leader>t", "<cmd>tabnew<CR>")
+-- Tab related stuff
 vim.keymap.set("n", "<C-l>", "<cmd>tabnext<CR>")
 vim.keymap.set("n", "<C-h>", "gT")
+vim.keymap.set("", "<C-t>", "<cmd>tabnew +Ex<CR>")
 vim.keymap.set("", "<leader>w", "<cmd>tabclose<CR>")
+vim.keymap.set("n", "<leader><leader>", "<cmd>tabnew +term<CR>A")
