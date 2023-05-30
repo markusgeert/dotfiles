@@ -1,4 +1,5 @@
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/apache-maven-3.9.2/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -32,3 +33,5 @@ load-nvmrc() {
 
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+[ -s "/Users/max/.jabba/jabba.sh" ] && source "/Users/max/.jabba/jabba.sh"
