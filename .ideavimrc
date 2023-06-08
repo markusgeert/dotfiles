@@ -1,0 +1,19 @@
+set NERDTree
+
+let mapleader = ' '
+
+imap kj <Esc>
+set timeoutlen=1000
+
+set number
+set relativenumber
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+y
+
