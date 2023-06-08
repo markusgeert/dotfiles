@@ -1,5 +1,7 @@
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/apache-maven-3.9.2/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libpq/include"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -35,3 +37,5 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 [ -s "/Users/max/.jabba/jabba.sh" ] && source "/Users/max/.jabba/jabba.sh"
+
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
