@@ -42,4 +42,13 @@ end)
 
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
+local disableSuggestions = {
+    init_options = {
+        preferences = {
+            disableSuggestions = true,
+        }
+    }
+}
+require("lspconfig").tsserver.setup(disableSuggestions)
+
 lsp.setup()
