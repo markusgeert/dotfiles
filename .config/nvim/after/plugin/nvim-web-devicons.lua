@@ -29,6 +29,24 @@ local image = {
     name = "Image"
 }
 
+local key = {
+    icon = "󰌆",
+    color = "#52a49a",
+    name = "Key"
+}
+
+local cert = {
+    icon = "󱆆",
+    color = "#52a49a",
+    name = "Cert"
+}
+
+local java = {
+    icon = "",
+    color = "#e15241",
+    name = "Java"
+}
+
 require("nvim-web-devicons").setup {
     strict = true,
 
@@ -50,12 +68,12 @@ require("nvim-web-devicons").setup {
             name = "CodeWorkspace"
         },
         ["ts"] = {
-            icon = "󰛦",
+            icon = "",
             color = "#519aba",
             name = "Typescript",
         },
         ["d.ts"] = {
-            icon = "",
+            icon = "󰛦",
             color = "#519aba",
             name = "TypescriptTypes",
         },
@@ -68,7 +86,10 @@ require("nvim-web-devicons").setup {
         ["Dockerfile"] = docker,
         ["ru"] = ruby,
         ["rb"] = ruby,
-        ["erb"] = ruby
+        ["erb"] = ruby,
+        ["pem"] = key,
+        ["pfx"] = cert,
+        ["jar"] = java
     },
 
     override_by_filename = {
