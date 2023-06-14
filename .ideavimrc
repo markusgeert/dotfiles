@@ -17,3 +17,10 @@ nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+y
 
+nmap - <Action>(ActivateProjectToolWindow)
+map <leader>gs <Action>(ActivateCommitToolWindow)
+map = <Action>(Diff.ShowDiff)
+
+map <leader>vca <Action>(ShowIntentionActions)
+map <leader>vd <Action>(ShowErrorDescription)
+
