@@ -79,3 +79,13 @@ vim.keymap.set("n", "<C-h>", "gT")
 vim.keymap.set("", "<C-t>", "<cmd>tabnew +Ex<CR>")
 vim.keymap.set("", "<leader>w", "<cmd>tabclose<CR>")
 vim.keymap.set("n", "<leader><leader>", "<cmd>tabnew +term<CR>A")
+
+local function changeDir()
+    if (vim.bo.filetype == "netrw") then
+        vim.cmd("lcd %")
+    else
+        vim.cmd("lcd %:h")
+    end
+end
+
+vim.keymap.set("n", "<leader>cd", changeDir)
