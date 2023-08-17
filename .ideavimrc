@@ -23,4 +23,6 @@ map = <Action>(Diff.ShowDiff)
 
 map <leader>vca <Action>(ShowIntentionActions)
 map <leader>vd <Action>(ShowErrorDescription)
-
+map <leader>vrn <Action>(RenameElement)
+map <C-/> <Action>(CommentByLineComment)
+nmap gh <Action>(QuickJavaDoc)
