@@ -4,6 +4,8 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("i", "kj", "<Esc>")
+vim.keymap.set("v", "kj", "<Esc>")
+vim.keymap.set("c", "kj", "<C-C>")
 vim.keymap.set("t", "kj", "<C-\\><C-n>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
@@ -28,7 +30,7 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 local function format(buf)
     local null_ls_sources = require("null-ls.sources")
@@ -37,6 +39,7 @@ local function format(buf)
     local has_null_ls = #null_ls_sources.get_available(filetype, 'NULL_LS_FORMATTING') > 0
 
     vim.lsp.buf.format({
+        timeout = 2000,
         bufnr = buf,
         filter = function(client)
             if has_null_ls then
@@ -53,15 +56,16 @@ vim.keymap.set("n", "<leader>f", function() format(vim.fn.bufnr()) end)
 -- Format on write
 vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = "*", callback = function() format(vim.fn.bufnr()) end })
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>q", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+vim.keymap.set("n", "<leader>vc", "<cmd>e ~/.config/nvim<CR>");
 
 vim.keymap.set("n", "<F10>", "<cmd>TSHighlightCapturesUnderCursor<CR>")
 
@@ -73,13 +77,6 @@ vim.api.nvim_create_autocmd({ 'filetype' }, {
     command = "silent! nunmap <buffer> <c-l>"
 })
 
--- Tab related stuff
-vim.keymap.set("n", "<C-l>", "<cmd>tabnext<CR>")
-vim.keymap.set("n", "<C-h>", "gT")
-vim.keymap.set("", "<C-t>", "<cmd>tabnew +Ex<CR>")
-vim.keymap.set("", "<leader>w", "<cmd>tabclose<CR>")
-vim.keymap.set("n", "<leader><leader>", "<cmd>tabnew +term<CR>A")
-
 local function changeDir()
     if (vim.bo.filetype == "netrw") then
         vim.cmd("lcd %")
@@ -89,3 +86,5 @@ local function changeDir()
 end
 
 vim.keymap.set("n", "<leader>cd", changeDir)
+
+vim.wo.foldlevel = 99

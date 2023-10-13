@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
@@ -16,13 +16,20 @@ return require('packer').startup(function(use)
     use 'tanvirtin/monokai.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
 
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+    }
     use('nvim-treesitter/playground')
+    use('nvim-treesitter/nvim-treesitter-context')
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
 
     use('tpope/vim-fugitive')
-    use('tpope/vim-commentary')
+    use('tpope/vim-sleuth')
+    use('tpope/vim-rails')
+
+    use('tomtom/tcomment_vim')
 
     use('tpope/vim-vinegar')
     use('prichrd/netrw.nvim')
@@ -34,6 +41,7 @@ return require('packer').startup(function(use)
         requires = {
             -- LSP Support
             { 'neovim/nvim-lspconfig' }, -- Required
+            { 'simrat39/rust-tools.nvim' },
             {
                 -- Optional
                 'williamboman/mason.nvim',

@@ -35,13 +35,16 @@ vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
 
 vim.opt.statusline = ''
-        .. '%#PmenuSel#'                               -- Set color 1
-        .. " %{FugitiveStatusline()}"                  -- Current git branch
-        .. ' %#StatusLine#'                            -- Set color 2, grayish
-        .. " %f"                                       -- Current filename
-        .. "%m"                                        -- Modified
-        .. "%="                                        -- Align right
-        .. " %y"                                       -- Filetype
-        .. " %{&fileencoding?&fileencoding:&encoding}" -- Encoding
-        .. " [%{&fileformat}]"                         -- File format
-        .. " %l:%c"                                    -- Current line and column
+    .. '%#PmenuSel#'                               -- Set color 1
+    .. " %{FugitiveStatusline()}"                  -- Current git branch
+    .. ' %#StatusLine#'                            -- Set color 2, grayish
+    .. " %f"                                       -- Current filename
+    .. "%m"                                        -- Modified
+    .. "%="                                        -- Align right
+    .. " %y"                                       -- Filetype
+    .. " %{&fileencoding?&fileencoding:&encoding}" -- Encoding
+    .. " [%{&fileformat}]"                         -- File format
+    .. " %l:%c"                                    -- Current line and column
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
