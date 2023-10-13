@@ -43,3 +43,14 @@ eval "$(jenv init -)"
 
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+alias vim="nvim"
+alias mux="tmuxinator"
+
+export HOMEBREW_NO_ENV_HINTS=true
+export HOMEBREW_EVAL_ALL=true
+
+export EDITOR='nvim'
+
+bindkey '^P' up-history
+bindkey '^R' history-substring-search-up
