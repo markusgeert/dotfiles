@@ -52,5 +52,7 @@ export HOMEBREW_EVAL_ALL=true
 
 export EDITOR='nvim'
 
+# Not really sure why these are needed, but they stop working inside tmux
 bindkey '^P' up-history
-bindkey '^R' history-substring-search-up
+bindkey '^R' history-incremental-search-backward
+bindkey '^U' kill-whole-line
