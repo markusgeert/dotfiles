@@ -56,3 +56,7 @@ export EDITOR='nvim'
 bindkey '^P' up-history
 bindkey '^R' history-incremental-search-backward
 bindkey '^U' kill-whole-line
+
+export PYENV_ROOT="$HOME/.pyenv"
+eval "$(pyenv init -)"
+
