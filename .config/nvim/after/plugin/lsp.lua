@@ -7,7 +7,8 @@ lsp.ensure_installed({
     'eslint',
     'lua_ls',
     'rust_analyzer',
-    'ruby_ls'
+    'ruby_ls',
+    'html',
 })
 
 local cmp = require('cmp')
@@ -54,12 +55,6 @@ local disableSuggestions = {
     }
 }
 require("lspconfig").tsserver.setup(disableSuggestions)
-
-local rustConfig = {
-    server = {
-        path = "rust-analyzer"
-    }
-}
 
 lsp.skip_server_setup({ 'rust_analyzer' })
 
@@ -110,6 +105,17 @@ require("lspconfig").ruby_ls.setup({
         setup_diagnostics(client, buffer)
     end,
 })
+
+--  Set up html lsp, with templating support
+require("lspconfig").html.setup({
+    init_options = {
+        format = {
+            templating = true
+        },
+    },
+})
+
+-- require('lspconfig').jedi_language_server.setup({})
 
 lsp.setup()
 require('rust-tools').setup({})
