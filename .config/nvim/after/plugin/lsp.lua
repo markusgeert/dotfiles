@@ -8,7 +8,7 @@ lsp.ensure_installed({
     'lua_ls',
     'rust_analyzer',
     'ruby_ls',
-    'html',
+    'pyright',
 })
 
 local cmp = require('cmp')
@@ -105,17 +105,6 @@ require("lspconfig").ruby_ls.setup({
         setup_diagnostics(client, buffer)
     end,
 })
-
---  Set up html lsp, with templating support
-require("lspconfig").html.setup({
-    init_options = {
-        format = {
-            templating = true
-        },
-    },
-})
-
--- require('lspconfig').jedi_language_server.setup({})
 
 lsp.setup()
 require('rust-tools').setup({})

@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 
 -- Exit current buffer
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>o", "<C-w>o")
 
 vim.keymap.set("i", "kj", "<Esc>")
 vim.keymap.set("v", "kj", "<Esc>")
@@ -13,12 +14,14 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Center after movement
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- Paste without yanking
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- Yank to clipboard
@@ -30,7 +33,7 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 vim.keymap.set("n", "Q", "<nop>")
--- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 local function format(buf)
     local null_ls_sources = require("null-ls.sources")

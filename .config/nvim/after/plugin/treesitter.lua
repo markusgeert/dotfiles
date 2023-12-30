@@ -1,7 +1,7 @@
 require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all"
     ensure_installed = { "vimdoc", "javascript", "typescript", "html", "css", "scss", "vue", "python", "c", "lua",
-        "rust", "ruby" },
+        "rust", "ruby", "html" },
 
     context_commentstring = {
         enable = true,
