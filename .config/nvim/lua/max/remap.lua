@@ -1,9 +1,12 @@
 vim.g.mapleader = " "
 
 -- Exit current buffer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>E", function() vim.cmd.Ex(vim.fn.getcwd()) end)
+vim.keymap.set("n", "<leader>w", vim.cmd.write)
 vim.keymap.set("n", "<leader>o", "<C-w>o")
 
+-- Go to normal mode using kj
 vim.keymap.set("i", "kj", "<Esc>")
 vim.keymap.set("v", "kj", "<Esc>")
 vim.keymap.set("c", "kj", "<C-C>")
