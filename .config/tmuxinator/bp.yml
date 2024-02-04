@@ -1,0 +1,12 @@
+# /Users/max/.config/tmuxinator/bp.yml
+
+name: bp
+root: ~/study/bachelors_project
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes: nvim .
+  - backend:
+      root: ~/study/bachelors_project/backend_django
+      panes: pyenv activate backend_django && flask --app flaskr --debug run

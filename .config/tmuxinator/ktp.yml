@@ -1,0 +1,12 @@
+# /Users/max/.config/tmuxinator/ktp.yml
+
+name: ktp
+root: ~/study/ktp/project
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes: nvim .
+  - term:
+      root: ~/study/ktp/project
+      panes: pyenv activate ktp
