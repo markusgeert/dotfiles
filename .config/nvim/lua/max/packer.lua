@@ -33,11 +33,22 @@ return require('packer').startup(function(use)
     use('tpope/vim-sleuth')
     use('tpope/vim-rails')
 
-    use('tomtom/tcomment_vim')
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+    use('JoosepAlviste/nvim-ts-context-commentstring')
 
     use('tpope/vim-vinegar')
     use('prichrd/netrw.nvim')
     use('nvim-tree/nvim-web-devicons')
+
+    use {
+        "pmizio/typescript-tools.nvim",
+        requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    }
 
     use {
         'VonHeikemen/lsp-zero.nvim',

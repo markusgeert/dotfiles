@@ -1,2 +1,3 @@
-vim.keymap.set("n", "<C-/>", "gcc")
-vim.keymap.set("v", "<C-/>", "<Plug>TComment")
+require('ts_context_commentstring').setup {}
+
+vim.g.skip_ts_context_commentstring_module = true

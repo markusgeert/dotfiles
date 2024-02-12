@@ -3,7 +3,6 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.ensure_installed({
-    'tsserver',
     'eslint',
     'lua_ls',
     'rust_analyzer',
@@ -54,7 +53,7 @@ local disableSuggestions = {
         }
     }
 }
-require("lspconfig").tsserver.setup(disableSuggestions)
+-- require("lspconfig").tsserver.setup(disableSuggestions)
 
 lsp.skip_server_setup({ 'rust_analyzer' })
 
