@@ -1,5 +1,5 @@
--- local palette = monokai.classic
 -- local monokai = require('monokai')
+-- local palette = monokai.classic
 --
 -- monokai.setup {
 --     custom_hlgroups = {
@@ -16,4 +16,8 @@
 --     flavour = "latte"
 -- })
 
-require("onedark").setup()
+-- vim.g.colorscheme = "onedark"
+
+-- require("onedark").setup()
+
+vim.cmd("colorscheme onedark")

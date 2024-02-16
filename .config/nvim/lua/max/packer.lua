@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
     use 'Mofiqul/vscode.nvim'
     use 'tanvirtin/monokai.nvim'
     use { "catppuccin/nvim", as = "catppuccin" }
-    use "joshdick/onedark.vim"
+    use { "joshdick/onedark.vim", as = "onedark" }
 
     use {
         'nvim-treesitter/nvim-treesitter',

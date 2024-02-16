@@ -170,9 +170,9 @@ _G.packer_plugins = {
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
-  ["onedark.vim"] = {
+  onedark = {
     loaded = true,
-    path = "/Users/max/.local/share/nvim/site/pack/packer/start/onedark.vim",
+    path = "/Users/max/.local/share/nvim/site/pack/packer/start/onedark",
     url = "https://github.com/joshdick/onedark.vim"
   },
   ["packer.nvim"] = {
