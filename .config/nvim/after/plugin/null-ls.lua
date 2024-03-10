@@ -6,7 +6,7 @@ null_ls.setup({
         null_ls.builtins.formatting.prettierd
             .with({
                 prefer_local = "node_modules/.bin",
-                extra_filetypes = { "vue", "json" },
+                extra_filetypes = { "vue", "json", "xml" },
             }),
         null_ls.builtins.formatting.djlint.with({ extra_filetypes = { "django-html" } }),
     }

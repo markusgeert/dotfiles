@@ -19,10 +19,12 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-treesitter/nvim-treesitter',
+        -- opt = true,
         run = ':TSUpdate',
+        -- event = 'BufRead',
     }
-    use('nvim-treesitter/playground')
-    use('nvim-treesitter/nvim-treesitter-context')
+    use { 'nvim-treesitter/playground', event = 'BufRead' }
+    use { 'nvim-treesitter/nvim-treesitter-context', event = 'BufRead' }
     use {
         'theprimeagen/harpoon',
         branch = "harpoon2",

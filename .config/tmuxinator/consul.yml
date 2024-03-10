@@ -1,6 +1,6 @@
 # /Users/max/.config/tmuxinator/consul.yml
 
-name: bp
+name: consul
 root: ~/code/Consul/consul-radstake
 
 windows:

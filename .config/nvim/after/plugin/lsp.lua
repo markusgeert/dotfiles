@@ -6,7 +6,7 @@ lsp.ensure_installed({
     'eslint',
     'lua_ls',
     'rust_analyzer',
-    'ruby_ls',
+    'solargraph',
     'pyright',
 })
 
@@ -99,11 +99,10 @@ local function setup_diagnostics(client, buffer)
     })
 end
 
-require("lspconfig").ruby_ls.setup({
-    on_attach = function(client, buffer)
-        setup_diagnostics(client, buffer)
-    end,
-})
+-- associate solargraph with .erb files
+-- require("lspconfig").solargraph.setup({
+--     filetypes = { "ruby" },
+-- })
 
 lsp.setup()
 require('rust-tools').setup({})
