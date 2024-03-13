@@ -7,10 +7,10 @@ vim.keymap.set("n", "<leader>w", vim.cmd.write)
 vim.keymap.set("n", "<leader>o", "<C-w>o")
 
 -- Go to normal mode using kj
-vim.keymap.set("i", "kj", "<Esc>")
-vim.keymap.set("v", "kj", "<Esc>")
-vim.keymap.set("c", "kj", "<C-C>")
-vim.keymap.set("t", "kj", "<C-\\><C-n>")
+-- vim.keymap.set("i", "kj", "<Esc>")
+-- vim.keymap.set("v", "kj", "<Esc>")
+-- vim.keymap.set("c", "kj", "<C-C>")
+-- vim.keymap.set("t", "kj", "<C-\\><C-n>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- 'Drag' lines
