@@ -12,10 +12,11 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    use 'Mofiqul/vscode.nvim'
-    use 'tanvirtin/monokai.nvim'
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use { "joshdick/onedark.vim", as = "onedark" }
+    use("folke/tokyonight.nvim")
+    use {
+        'uloco/bluloco.nvim',
+        requires = { 'rktjmp/lush.nvim' }
+    }
 
     use {
         'nvim-treesitter/nvim-treesitter',

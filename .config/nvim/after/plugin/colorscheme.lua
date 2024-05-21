@@ -20,4 +20,18 @@
 
 -- require("onedark").setup()
 
-vim.cmd("colorscheme onedark")
+-- vim.api.nvim_create_user_command(
+--     'Colorscheme',
+--     function(opts)
+--         if opts.args == 'dark' then
+--             vim.cmd('colorscheme tokyonight-night')
+--         elseif opts.args == 'light' then
+--             vim.cmd('colorscheme tokyonight-light')
+--         else
+--             vim.cmd('colorscheme ' .. opts.args)
+--         end
+--     end,
+--     { nargs = 1 }
+-- )
+
+vim.cmd('colorscheme bluloco')

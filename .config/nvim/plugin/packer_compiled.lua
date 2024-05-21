@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/max/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/max/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/max/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/max/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/max/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
+local package_path_str = "/Users/max/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?.lua;/Users/max/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?/init.lua;/Users/max/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?.lua;/Users/max/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/max/.cache/nvim/packer_hererocks/2.1.1713773202/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -85,10 +85,10 @@ _G.packer_plugins = {
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  catppuccin = {
+  ["bluloco.nvim"] = {
     loaded = true,
-    path = "/Users/max/.local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
+    path = "/Users/max/.local/share/nvim/site/pack/packer/start/bluloco.nvim",
+    url = "https://github.com/uloco/bluloco.nvim"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -110,6 +110,11 @@ _G.packer_plugins = {
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/Users/max/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -124,11 +129,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["monokai.nvim"] = {
-    loaded = true,
-    path = "/Users/max/.local/share/nvim/site/pack/packer/start/monokai.nvim",
-    url = "https://github.com/tanvirtin/monokai.nvim"
   },
   ["netrw.nvim"] = {
     loaded = true,
@@ -172,11 +172,6 @@ _G.packer_plugins = {
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
-  onedark = {
-    loaded = true,
-    path = "/Users/max/.local/share/nvim/site/pack/packer/start/onedark",
-    url = "https://github.com/joshdick/onedark.vim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -203,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/max/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["typescript-tools.nvim"] = {
     loaded = true,
@@ -233,11 +233,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/max/.local/share/nvim/site/pack/packer/start/vim-vinegar",
     url = "https://github.com/tpope/vim-vinegar"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/Users/max/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 
@@ -250,7 +245,7 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'playground', 'nvim-treesitter-context'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter-context', 'playground'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 
