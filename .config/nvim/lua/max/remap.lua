@@ -6,11 +6,6 @@ vim.keymap.set("n", "<leader>E", function() vim.cmd.Ex(vim.fn.getcwd()) end)
 vim.keymap.set("n", "<leader>w", vim.cmd.write)
 vim.keymap.set("n", "<leader>o", "<C-w>o")
 
--- Go to normal mode using kj
--- vim.keymap.set("i", "kj", "<Esc>")
--- vim.keymap.set("v", "kj", "<Esc>")
--- vim.keymap.set("c", "kj", "<C-C>")
--- vim.keymap.set("t", "kj", "<C-\\><C-n>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- 'Drag' lines
@@ -39,17 +34,12 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 local function format(buf)
-    local null_ls_sources = require("null-ls.sources")
-    local filetype = vim.bo[buf].filetype
-
-    local has_null_ls = #null_ls_sources.get_available(filetype, 'NULL_LS_FORMATTING') > 0
-
     vim.lsp.buf.format({
         timeout = 2000,
         bufnr = buf,
         filter = function(client)
-            if has_null_ls then
-                return client.name == "null-ls"
+            if client.name == "tsserver" or client.name == "volar" then
+                return false
             end
 
             return true
