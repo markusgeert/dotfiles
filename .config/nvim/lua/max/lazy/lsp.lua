@@ -47,10 +47,10 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "biome",
-                -- "jsonls",
                 "tsserver",
                 "volar",
                 "efm",
+                "eslint",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -62,21 +62,10 @@ return {
                 ["efm"] = function()
                     local util = require 'lspconfig.util'
 
-                    local format_options_prettier = {
-                        tabWidth = 2,
-                        singleQuote = true,
-                        trailingComma = 'all',
-                        configPrecedence = 'prefer-file'
-                    }
-
                     local prettier_d = {
                         formatCommand =
                         'prettierd ${--config-precedence:configPrecedence} ${--tab-width:tabWidth} ${--single-quote:singleQuote} ${--trailing-comma:trailingComma} --stdin-filepath "${INPUT}"',
                         formatStdin = true,
-                        env = {
-                            string.format('PRETTIERD_DEFAULT_CONFIG=%s',
-                                vim.fn.expand('~/.config/nvim/utils/linter-config/.prettierrc.json'))
-                        }
 
                     }
 
