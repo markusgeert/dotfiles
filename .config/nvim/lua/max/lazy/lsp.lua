@@ -66,15 +66,31 @@ return {
                         formatCommand =
                         'prettierd ${--config-precedence:configPrecedence} ${--tab-width:tabWidth} ${--single-quote:singleQuote} ${--trailing-comma:trailingComma} --stdin-filepath "${INPUT}"',
                         formatStdin = true,
-
                     }
 
                     local lspconfig = require("lspconfig")
                     lspconfig.efm.setup {
                         init_options = { documentFormatting = true },
-                        filetypes = { "javascript", "typescript", "vue", "html" },
+                        filetypes = { "javascript", "typescript", "vue", "html", "json", "jsonc" },
                         root_dir = util.root_pattern(".prettierrc"),
                         capabilities = capabilities,
+                        on_attach = function(client, bufnr)
+                            local function find_root_marker(filename)
+                                local current_dir = vim.fn.getcwd()
+                                while current_dir ~= "/" do
+                                    if vim.fn.glob(current_dir .. "/" .. filename) ~= "" then
+                                        return true
+                                    end
+                                    current_dir = vim.fn.fnamemodify(current_dir, ":h")
+                                end
+                                return false
+                            end
+
+                            if find_root_marker("biome.json") then
+                                client.stop()
+                                return
+                            end
+                        end,
                         settings = {
                             rootMarkers = { ".prettierrc" },
                             languages = {
@@ -82,6 +98,8 @@ return {
                                 typescript = { prettier_d },
                                 vue = { prettier_d },
                                 html = { prettier_d },
+                                json = { prettier_d },
+                                jsonc = { prettier_d },
                             }
                         }
                     }
@@ -102,6 +120,22 @@ return {
                                     languages = { "vue" },
                                 },
                             },
+                        },
+                        handlers = {
+                            -- Don't show 'convert to esm' warning
+                            ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+                                if result.diagnostics ~= nil then
+                                    local idx = 1
+                                    while idx <= #result.diagnostics do
+                                        if result.diagnostics[idx].code == 80001 then
+                                            table.remove(result.diagnostics, idx)
+                                        else
+                                            idx = idx + 1
+                                        end
+                                    end
+                                end
+                                vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+                            end,
                         },
                         filetypes = {
                             "javascript",
