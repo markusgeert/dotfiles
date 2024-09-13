@@ -20,9 +20,14 @@ return {
                 enable = true
             },
 
+
             highlight = {
                 -- `false` will disable the whole extension
                 enable = true,
+
+                disable = function(lang, bufnr) -- Disable in files with more than 5K
+                    return vim.api.nvim_buf_line_count(bufnr) > 5000
+                end,
 
                 -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
                 -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

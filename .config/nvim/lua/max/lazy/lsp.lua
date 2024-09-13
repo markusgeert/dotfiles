@@ -51,11 +51,12 @@ return {
                 "volar",
                 "efm",
                 "eslint",
+                "ruby_lsp",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {
-                        capabilities = capabilities
+                        capabilities = capabilities,
                     }
                 end,
 
@@ -103,6 +104,18 @@ return {
                             }
                         }
                     }
+                end,
+
+                ["ruby_lsp"] = function()
+                    local lspconfig = require('lspconfig')
+
+                    lspconfig.ruby_lsp.setup({
+                        capabilities = capabilities,
+                        init_options = {
+                            formatter = 'standard',
+                            linters = { 'standard' },
+                        },
+                    })
                 end,
 
                 ["tsserver"] = function()

@@ -45,6 +45,7 @@ source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias vim="nvim"
+alias sed="gsed"
 alias mux="tmuxinator"
 
 export HOMEBREW_NO_ENV_HINTS=true
