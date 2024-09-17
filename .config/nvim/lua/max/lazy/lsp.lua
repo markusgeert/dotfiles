@@ -52,6 +52,7 @@ return {
                 "efm",
                 "eslint",
                 "ruby_lsp",
+                "pylsp"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -155,6 +156,24 @@ return {
                             "typescript",
                             "vue",
                         },
+                    }
+                end,
+
+                ["pylsp"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pylsp.setup {
+                        settings = {
+                            pylsp = {
+                                plugins = {
+                                    autopep8 = {
+                                        enabled = false,
+                                    },
+                                    yapf = {
+                                        enabled = true,
+                                    }
+                                }
+                            }
+                        }
                     }
                 end,
 
