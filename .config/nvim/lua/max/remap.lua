@@ -50,7 +50,27 @@ end
 vim.keymap.set("n", "<leader>f", function() format(vim.fn.bufnr()) end)
 
 -- Format on write
-vim.api.nvim_create_autocmd({ "BufWritePre" }, { pattern = "*", callback = function() format(vim.fn.bufnr()) end })
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = "*",
+    callback = function()
+        -- List of directories where formatting should be disabled
+        local exclude_dirs = {
+            "/Users/max/code/openstad/openstad-headless", -- Replace with your project's absolute path
+        }
+
+        -- Get the absolute path of the current file's directory
+        local buf_dir = vim.fn.expand("%:p:h")
+
+        -- Check if the current file is in an excluded directory
+        for _, dir in ipairs(exclude_dirs) do
+            if buf_dir:sub(1, #dir) == dir then
+                return -- Skip formatting
+            end
+        end
+
+        format(vim.fn.bufnr())
+    end
+})
 
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
