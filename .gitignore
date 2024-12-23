@@ -1,2 +1,7 @@
 *
 !/.config/
+!.tmux.conf
+!.gitconfig
+!.zprofile
+!.zshrc
+!.zshenv

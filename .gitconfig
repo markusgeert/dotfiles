@@ -1,0 +1,24 @@
+[user]
+	name = Max Stevens
+	email = maxstevens2708@gmail.com
+	signingkey = /Users/max/.ssh/id_rsa.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[advice]
+    addIgnoredFile = false
+[core]
+	editor = nvim
+[pull]
+	rebase = false
+[push]
+    autoSetupRemote = true
+[maintenance]
+	repo = /Users/max/code/loanlink/backend
+[merge]
+	tool = opendiff
+[difftool]
+	prompt = false

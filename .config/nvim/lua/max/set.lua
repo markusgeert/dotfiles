@@ -34,6 +34,7 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
+vim.g.ftplugin_sql_omni_key = '<C-j>'
 
 vim.opt.statusline = ''
     .. '%#PmenuSel#'                               -- Set color 1
