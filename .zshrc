@@ -71,3 +71,8 @@ if [ -f '/Users/max/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/max/g
 
 # bun completions
 [ -s "/Users/max/.bun/_bun" ] && source "/Users/max/.bun/_bun"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/max/.lmstudio/bin"
+
+. "$HOME/.local/bin/env"

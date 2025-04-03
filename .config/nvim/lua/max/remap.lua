@@ -38,7 +38,7 @@ local function format(buf)
         timeout = 2000,
         bufnr = buf,
         filter = function(client)
-            if client.name == "tsserver" or client.name == "volar" then
+            if client.name == "ts_ls" or client.name == "volar" then
                 return false
             end
 

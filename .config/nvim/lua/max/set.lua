@@ -48,7 +48,7 @@ vim.opt.statusline = ''
     .. " [%{&fileformat}]"                         -- File format
     .. " %l:%c"                                    -- Current line and column
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.cmd("language en_US")
